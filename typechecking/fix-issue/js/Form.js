@@ -43,13 +43,13 @@ const Form = (props) => {
 };
 
 Form.propTypes = {
-  handleSubmit: PropTypes.func,
-  handleChange: PropTypes.func,
+    handleSubmit: PropTypes.func,
+    handleChange: PropTypes.func,
 
-  email: PropTypes.number,
-  first_name: PropTypes.string,
-  last_name: PropTypes.string,
-  age: PropTypes.integer,
-  nickname: PropTypes.string,
-  is_married: PropTypes.integer
+    email: PropTypes.string.isRequired,
+    first_name: PropTypes.string,
+    last_name: PropTypes.string,
+    age: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    nickname: PropTypes.string,
+    is_married: PropTypes.bool
 };
