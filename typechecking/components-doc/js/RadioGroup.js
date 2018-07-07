@@ -1,15 +1,15 @@
 'use strict';
 
-const RadioGroup = props => {
+const RadioGroup = ({label, list, name, onChange, value}) => {
   return (
     <div className="form-group">
-      <label>{props.label}</label>
+      <label>{label}</label>
       <div>
-        {props.list.map((item, i) => (
-          <div key={`${props.name}_${i}`} className="form-check form-check-inline">
-            <input className="form-check-input" type="radio" name={props.name} onChange={props.onChange}
-                   value={item} checked={item == props.value} id={`radio_${props.name}_${i}`}/>
-            <label className="form-check-label" htmlFor={`radio_${props.name}_${i}`}>{item}</label>
+        {list.map((item, i) => (
+          <div key={`${name}_${i}`} className="form-check form-check-inline">
+            <input className="form-check-input" type="radio" name={name} onChange={onChange}
+                   value={item} checked={item == value} id={`radio_${name}_${i}`}/>
+            <label className="form-check-label" htmlFor={`radio_${name}_${i}`}>{item}</label>
           </div>
         ))}
       </div>
@@ -18,10 +18,12 @@ const RadioGroup = props => {
 };
 
 RadioGroup.propTypes = {
-  onChange:PropTypes.func,
-
+  label: PropTypes.string,
   list: PropTypes.array,
-  label:PropTypes.string,
-  name:PropTypes.string,
-  value:PropTypes.oneOf(['муж', 'жен'])
-}
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ])
+};

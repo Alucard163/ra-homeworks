@@ -26,7 +26,6 @@ const Form = (props) => {
 Form.propTypes = {
   handleSubmit: PropTypes.func,
   handleChange: PropTypes.func,
-
   email: PropTypes.string,
   first_name: PropTypes.string,
   last_name: PropTypes.string,

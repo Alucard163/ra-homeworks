@@ -1,21 +1,23 @@
 'use strict';
 
-const TextInput = props => {
+const TextInput = ({type, label, name, onChange, value, required}) => {
   return (
     <div className="form-group">
-      <label>{props.label}</label>
-      <input type={props.type} className="form-control" name={props.name} onChange={props.onChange}
-             value={props.value} required={props.required}/>
+      <label>{label}</label>
+      <input type={type} className="form-control" name={name} onChange={onChange}
+             value={value} required={required}/>
     </div>
   )
 };
 
 TextInput.propTypes = {
-	onChange:PropTypes.func,
-
-	label:PropTypes.string,
-	type:PropTypes.oneOf(['email', 'text', 'password']),
-	name:PropTypes.string,
-	value:PropTypes.string,
-	required:PropTypes.bool
-}
+  type: PropTypes.string,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
+  required: PropTypes.bool
+};
